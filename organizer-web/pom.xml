@@ -9,7 +9,7 @@
   <version>0.1</version>
   <packaging>war</packaging>
 
-  <name>organizer-web Maven Webapp</name>
+  <name>organizer-web</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 	
@@ -26,6 +26,18 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
 		
@@ -68,6 +80,27 @@
     		<version>1.2</version>
 		</dependency>
 		
+		<!-- JDBC Treiber -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.28</version>
+		</dependency>
+		
+		<!-- Hibernate -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>5.6.7.Final</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.mchange</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.5.5</version>
+		</dependency>
+
+
 		<!-- Support fuer Testframeworks-->
 		<dependency>
 			<groupId>junit</groupId>
@@ -76,6 +109,8 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+
 
   <build>
     <finalName>organizer-web</finalName>
@@ -98,10 +133,12 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
         </plugin>
-        <plugin>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>3.2.2</version>
-        </plugin>
+				<plugin>
+					<!-- Add Maven coordinates (GAV) for: maven-war-plugin -->
+				    <groupId>org.apache.maven.plugins</groupId>
+				    <artifactId>maven-war-plugin</artifactId>
+				    <version>3.2.0</version>					
+				</plugin>						
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>2.5.2</version>
