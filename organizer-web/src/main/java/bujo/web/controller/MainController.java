@@ -16,7 +16,6 @@ public class MainController {
 	@GetMapping("/")
 	public String showHome() {
 		System.out.println(service.getAll());
-		
 		return "home";
 	}
 	

@@ -13,15 +13,15 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 
 @Configuration
 @EnableWebSecurity
-public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private DataSource dataSource;
+	private DataSource securityDataSource;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		//Setze Security Data source für Login
-		auth.jdbcAuthentication().dataSource(dataSource);
+		auth.jdbcAuthentication().dataSource(securityDataSource);
 	}
 
 	@Override
